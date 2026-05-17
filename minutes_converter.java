@@ -11,16 +11,17 @@ class Main {
             long seconds = minutes * 60;
             long años = minutes / 525600;
             long minutesañosres = minutes % 525600;
-            long dias = minutes / 1440;
-            long minutesdiasres = minutes % 1440;
-            long horas = minutes / 60;
-            long minuteshoursres = minutes % 60;
+            long dias = minutesañosres / 1440;
+            long minutesdiasres = minutesañosres % 1440;
+            long horas = minutesdiasres / 60;
+            long minuteshoursres = minutesdiasres % 60;
 
             System.out.println("La conversion aprox de: " + minutes + " es");
             System.out.println("Segundos totales: " + seconds);
             System.out.println("Horas: " + horas);
             System.out.println("Dias: " + dias);
             System.out.println("Años: " + años);
+            System.out.println("Minutos Restantes" + minuteshoursres);
         }
     }
 }
