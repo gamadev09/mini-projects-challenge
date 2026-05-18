@@ -6,25 +6,39 @@ import java.util.Scanner;
 public class system_sell_console {
     public static void main(String[] args) {
         try (Scanner input = new Scanner(System.in)) {
-            double pricePerLicense = 100.0;
-            int quantity;
+            double pricelicence = 100.0;
+            int quantity = 0;
+            double totalprice;
+            double discount  = 0.0;
+            double discountamount = 0.0;
 
+            // ask to user
             System.out.println("¿Cuántas licencias desea comprar?");
             quantity = input.nextInt();
 
-            double totalCost = pricePerLicense * quantity;
-             System.out.println("El costo de su compra es: $" + totalCost);
-            
-             if (quantity >= 10 && quantity < 50) {
-                totalCost *= 0.9; // apply 10% discount
-                System.out.println("Se aplicó un descuento del 10%");
-            } else if (quantity >= 50) {
-                totalCost *= 0.8; // apply 20% discount
-                System.out.println("Se aplicó un descuento del 20%");
+            // calculate if it have discount
+            if (quantity >= 10 && quantity <= 49) {
+                discount = 0.1;}
+            else {
+                if (quantity >= 50) {
+                    discount = 0.2;
+                }
             }
 
-            System.out.println("El costo total su compra es: $" + totalCost);
-            System.out.println("Gracias por su compra, ¡esperamos que disfrute de nuestro software!");
+            // totalprice
+            totalprice = pricelicence * quantity;
+            discountamount = totalprice * discount;
+
+            // output to user
+
+            System.out.println("=========================================");
+            System.out.println("           FACTURA DE COMPRA             ");
+            System.out.println("=========================================");
+            System.out.println("Licencias solicitadas "+ quantity);
+            System.out.println("Subtotal "+ totalprice);
+            System.out.println("Descuento aplicado " + discount * 100 + " %");
+            System.out.println("-----------------------------------------");
+            System.out.println("Total neto a pagar " + (totalprice - discountamount));
         }
     }
 }
