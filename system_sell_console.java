@@ -22,8 +22,8 @@ public class system_sell_console {
                 totalCost *= 0.8; // apply 20% discount
                 System.out.println("Se aplicó un descuento del 20%");
             }
+
             System.out.println("El costo total su compra es: $" + totalCost);
-           
             System.out.println("Gracias por su compra, ¡esperamos que disfrute de nuestro software!");
         }
     }
