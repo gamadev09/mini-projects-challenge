@@ -23,7 +23,7 @@ public class inventory_store {
                     System.out.println("Stock insuficiente");
                 } 
                 else {
-                    
+                    stock -= quantity;
                     System.out.println("Producto retirado");
                 }
             }
