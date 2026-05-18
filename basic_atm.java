@@ -7,13 +7,14 @@ public class basic_atm {
             String usuario = null;
             double withdraw = 0;
 
+            System.out.println("Ingrese su nombre");
+            usuario = input.nextLine();
+            System.out.println("Bienvenido " + usuario);
+
             while (selection !=3){
                 System.out.println("===================================");
                 System.out.println("               ATM SYSTEM          ");
                 System.out.println("===================================");
-                System.out.println("Ingrese su nombre");
-                usuario = input.nextLine();
-                System.out.println("Bienvenido " + usuario);
                 System.out.println("¿Qué desea realizar?");
                 System.out.println("1. Ver dinero");
                 System.out.println("2. Retirar");
