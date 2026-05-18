@@ -11,7 +11,7 @@ public class inventory_store {
             int quantity = 0;
             System.out.println("¿Cuánto hay en stock?");
             stock = input.nextInt();
-
+            
             while(stock != 0) {
                 System.out.println("=====================================");
                 System.out.println("       Sistema de Tienda      ");
