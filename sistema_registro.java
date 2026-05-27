@@ -1,6 +1,7 @@
 import java.util.Scanner;
+import java.security.MessageDigest;
 public class sistema_registro {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         try (Scanner input = new Scanner(System.in)) {
             // starting and asking how much users should add
             int i = 0;
@@ -10,14 +11,18 @@ public class sistema_registro {
             
             // variables of arrays
             String[] name, lastname, mail;
-            String[] password;
-
+            //String[] password;
+            String[] rawpass;
+            
             // creating arrays
             name = new String[cantidadUsuarios];
             lastname = new String[cantidadUsuarios];
-            mail = new String[cantidadUsuarios];  
-            password = new String[cantidadUsuarios];
+            mail = new String[cantidadUsuarios];
+            rawpass = new String[cantidadUsuarios];
+            
 
+            // instance of MessageDigest for hashing passwords
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
             // asking for data
             for (i = 0; i < cantidadUsuarios; i++) {
                 System.out.println("Registre el n° " + (i+1) + " usuario");
@@ -28,16 +33,22 @@ public class sistema_registro {
                 System.out.println("Ingrese su correo");
                 mail[i] = input.next();
                 System.out.println("Ingrese su contraseña");
-                password[i] = input.next();
+                rawpass[i] = input.next();
+                // password to hash
+                byte[] hash = md.digest(rawpass[i].getBytes());
+                // converting hash to string
+                StringBuilder password = new StringBuilder();
+                //byte[] hash = md.digest(rawpass.getBytes());
+                
             }
 
             // showing the total of user registered
 
+            System.out.println("===================================================");
+            System.out.println("===========Total Usuarios Registrados=====================");
+            System.out.println("===================================================");
             for (i = 0; i < cantidadUsuarios; i++) {
-                System.out.println("===================================================");
-                System.out.println("===========Total Usuarios Registrados=====================");
-                System.out.println("===================================================");
-                System.out.println("Usuario " + (i+1));
+                System.out.println("Usuario n° " + (i+1));
                 System.out.println("Nombre: " + name[i]);
                 System.out.println("Apellido: " + lastname[i]);
                 System.out.println("Correo: " + mail[i]);
