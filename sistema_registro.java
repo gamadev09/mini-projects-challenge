@@ -25,7 +25,7 @@ public class sistema_registro {
             MessageDigest md = MessageDigest.getInstance("SHA-256");
             // asking for data
             for (i = 0; i < cantidadUsuarios; i++) {
-                System.out.println("Registre el n° " + (i+1) + " usuario");
+                System.out.println("Registre el n° " + (i + 1) + " usuario");
                 System.out.println("Ingrese su nombre");
                 name[i] = input.next();
                 System.out.println("Ingrese su apellido");
@@ -39,7 +39,6 @@ public class sistema_registro {
                 // converting hash to string
                 StringBuilder password = new StringBuilder();
                 //byte[] hash = md.digest(rawpass.getBytes());
-                
             }
 
             // showing the total of user registered
